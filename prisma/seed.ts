@@ -1,6 +1,6 @@
-import { posts } from './posts';
-
+import { posts } from './posts'; // Asigură-te că acest fișier exportă un array de posturi
 import { PrismaClient } from '@prisma/client';
+
 const prisma = new PrismaClient();
 
 async function main() {
@@ -13,9 +13,9 @@ async function main() {
 
 main()
 	.catch((e) => {
-		console.log(e);
+		console.error(e); // Folosește console.error pentru a evidenția erorile
 		process.exit(1);
 	})
-	.finally(() => {
-		prisma.$disconnect();
+	.finally(async () => {
+		await prisma.$disconnect(); // Asigură-te că se deconectează în mod corespunzător
 	});
