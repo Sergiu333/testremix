@@ -1,4 +1,4 @@
-import styles from '~/styles/global.css';
+import './styles/global.css'; // Importă CSS-ul direct
 import type { LinksFunction, MetaFunction } from '@remix-run/node';
 import {
 	Links,
@@ -11,7 +11,7 @@ import {
 } from '@remix-run/react';
 
 export const links: LinksFunction = () => {
-	return [{ rel: 'stylesheet', href: styles }];
+	return []; // Nu mai este nevoie de această parte pentru CSS
 };
 
 export const meta: MetaFunction = () => {
