@@ -1,58 +1,45 @@
-import './styles/global.css'; // Importă CSS-ul direct
-import type { LinksFunction, MetaFunction } from '@remix-run/node';
 import {
-	Links,
-	Link,
-	LiveReload,
-	Meta,
-	Outlet,
-	Scripts,
-	ScrollRestoration,
-} from '@remix-run/react';
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+} from "@remix-run/react";
+import type { LinksFunction } from "@remix-run/node";
 
-export const links: LinksFunction = () => {
-	return []; // Nu mai este nevoie de această parte pentru CSS
-};
+import "./tailwind.css";
 
-export const meta: MetaFunction = () => {
-	return [
-		{ title: 'MEGADENT' },
-		{
-			name: 'description',
-			content: 'MEGADENT DOCTORS',
-		},
-	];
-};
+export const links: LinksFunction = () => [
+  { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  {
+    rel: "preconnect",
+    href: "https://fonts.gstatic.com",
+    crossOrigin: "anonymous",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+  },
+];
+
+export function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        {children}
+        <ScrollRestoration />
+        <Scripts />
+      </body>
+    </html>
+  );
+}
 
 export default function App() {
-	return (
-		<html lang="en">
-			<head>
-				<meta charSet="utf-8" />
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<Meta />
-				<Links />
-			</head>
-			<body>
-				<nav className="container-nav">
-					<div className="navbar">
-						<Link to="/" className="logo logo-color">
-							MEGADENT
-						</Link>
-						<ul className="nav">
-							<li>
-								<Link to="/posts">Doctors</Link>
-							</li>
-						</ul>
-					</div>
-				</nav>
-				<div className="container">
-					<Outlet />
-				</div>
-				<ScrollRestoration />
-				<Scripts />
-				<LiveReload />
-			</body>
-		</html>
-	);
+  return <Outlet />;
 }
