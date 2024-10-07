@@ -26,10 +26,10 @@ export const loader = async () => {
 
 const Posts = () => {
     const { cars } = useLoaderData<LoaderData>(); // Use LoaderData as the generic type
-    let total = 0; // Schimbat const in let
-    for (let i = 0; i < cars.length; i++) {
-        total += parseInt(cars[i].price, 10); // Adunam pretul convertit in integer
-    }
+    // let total = 0; // Schimbat const in let
+    // for (let i = 0; i < cars.length; i++) {
+    //     total += parseInt(cars[i].price, 10); // Adunam pretul convertit in integer
+    // }
 
     return (
         <>
@@ -50,7 +50,7 @@ const Posts = () => {
                     </li>
                 ))}
             </ul>
-            <div className="pt-10">Total: {total} lei</div>
+            {/*<div className="pt-10">Total: {total} lei</div>*/}
         </>
     );
 };
