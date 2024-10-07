@@ -1,4 +1,4 @@
-import './styles/global.css'; // Importă CSS-ul direct
+import './styles/global.css';
 import type { LinksFunction, MetaFunction } from '@remix-run/node';
 import {
 	Links,
@@ -16,10 +16,10 @@ export const links: LinksFunction = () => {
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: 'MEGADENT' },
+		{ title: 'asdasdasd' },
 		{
 			name: 'description',
-			content: 'MEGADENT DOCTORS',
+			content: 'sasdasd sdf',
 		},
 	];
 };
@@ -37,11 +37,16 @@ export default function App() {
 				<nav className="container-nav">
 					<div className="navbar">
 						<Link to="/" className="logo logo-color">
-							MEGADENT
+							Sergiu
 						</Link>
+						{/*<ul className="nav">*/}
+						{/*	<li>*/}
+						{/*		<Link to="/posts">Doctors</Link>*/}
+						{/*	</li>*/}
+						{/*</ul>*/}
 						<ul className="nav">
 							<li>
-								<Link to="/posts">Doctors</Link>
+								<Link to="/cars">CAR Expenses</Link>
 							</li>
 						</ul>
 					</div>
